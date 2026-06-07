@@ -1,10 +1,16 @@
+import Link from "next/link";
+
+
 type ProductCardSchema = {
+  id: string;
   name: string;
   price: number;
+  description : string;
 };
 
-export default function ProductCard({name,price}: ProductCardSchema) {
+export default function ProductCard({id,name,price,description}: ProductCardSchema) {
   return (
+    <Link href={`/product/${id}`}> 
     <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
       {/* Fake Image Area */}
       <div className="h-40 bg-gray-100 flex items-center justify-center text-center px-4">
@@ -24,5 +30,6 @@ export default function ProductCard({name,price}: ProductCardSchema) {
         </p>
       </div>
     </div>
+    </Link>
   );
 }

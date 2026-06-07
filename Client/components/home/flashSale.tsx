@@ -8,6 +8,7 @@ type Product = {
   _id: string;
   name: string;
   price: number;
+  description: string;
 };
 
 export default function FlashSale() {
@@ -39,8 +40,10 @@ export default function FlashSale() {
         {products.map((product) => (
           <ProductCard
             key={product._id}
+            id={product._id}
             name={product.name}
             price={product.price}
+            description={product.description}
           />
         ))}
       </div>
