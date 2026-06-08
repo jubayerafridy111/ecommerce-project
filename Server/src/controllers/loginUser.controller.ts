@@ -8,7 +8,7 @@ const loginUser = async (req : Request , res : Response , next : NextFunction) =
         const result = await UserServices.loginUser({ email, password })
         res.status(200).json({
             success : true ,
-            acesstoken : result
+            data : result
         });
         }
     catch (error) {

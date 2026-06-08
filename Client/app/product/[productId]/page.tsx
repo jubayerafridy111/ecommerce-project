@@ -1,4 +1,5 @@
-import { api } from "@/lib/axios";
+import { api } from "@/lib/api";
+import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
 
 type Product = {
   _id: string;
@@ -42,9 +43,13 @@ export default async function ProductPage({params}: Props) {
             {product.description}
           </p>
 
-          <button className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
-            Add to Cart
-          </button>
+          <AddToCartButton
+            product={{
+              _id: product._id,
+              name: product.name,
+              price: product.price,
+            }}
+          />
         </div>
 
       </div>

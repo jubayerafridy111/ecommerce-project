@@ -3,6 +3,7 @@ import userRoutes from "./routes/user.route.js";
 import cors from "cors";
 import sellerRoutes from "./routes/seller.route.js";
 import productRoutes from "./routes/product.route.js";
+import cartRoutes from "./routes/cart.route.js";
 
 
 const app = express();
@@ -13,6 +14,8 @@ app.get("/home" , (req,res) => res.send("Hello World"))
 app.use("/api/v1/user" , userRoutes)
 app.use("/api/v1/seller" , sellerRoutes)
 app.use("/products" , productRoutes)
+app.use("/cart" , cartRoutes)
+
 
 
 

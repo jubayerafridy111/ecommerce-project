@@ -24,7 +24,9 @@ const loginUser = async (payload : ILogin ) => {
             expiresIn: "7d",
         }
     );
-    return { accessToken };
+    const userName = user.name;
+    const role = user.role;
+    return { accessToken, userName , role };
 }
 
 export const UserServices = {

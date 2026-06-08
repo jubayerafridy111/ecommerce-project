@@ -49,3 +49,11 @@ export interface ILoginAdmin{
     email: string;
     password: string;
 }
+
+export interface IAddCart {
+  userId: string;
+  productId: string;
+  name: string;
+  price: number;
+
+}
