@@ -57,3 +57,10 @@ export interface IAddCart {
   price: number;
 
 }
+
+export interface IAddWishlist {
+  userId: string;
+  productId: string;
+  name: string;
+  price: number;
+}

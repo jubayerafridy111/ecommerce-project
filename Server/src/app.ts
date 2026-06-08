@@ -4,6 +4,7 @@ import cors from "cors";
 import sellerRoutes from "./routes/seller.route.js";
 import productRoutes from "./routes/product.route.js";
 import cartRoutes from "./routes/cart.route.js";
+import wishlistRoutes from "./routes/wishlist.route.js";
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.use("/api/v1/user" , userRoutes)
 app.use("/api/v1/seller" , sellerRoutes)
 app.use("/products" , productRoutes)
 app.use("/cart" , cartRoutes)
+app.use("/wishlist" , wishlistRoutes)
 
 
 

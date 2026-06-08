@@ -1,5 +1,6 @@
 import { api } from "@/lib/api";
 import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
+import AddToWishlistButton from "@/components/AddToWishListButton/AddToWishListButton";
 
 type Product = {
   _id: string;
@@ -9,19 +10,24 @@ type Product = {
 };
 
 type Props = {
-  params: Promise<{productId: string}>;
+  params: Promise<{ productId: string }>;
 };
 
-export default async function ProductPage({params}: Props) {
+export default async function ProductPage({
+  params,
+}: Props) {
   const { productId } = await params;
 
-  const res = await api.get(`/products/${productId}`);
+  const res = await api.get(
+    `/products/${productId}`
+  );
+
   const product: Product = res.data.data;
 
   return (
     <div className="max-w-7xl mx-auto p-10">
       <div className="grid md:grid-cols-2 gap-10">
-        
+
         {/* Image Placeholder */}
         <div className="h-96 bg-gray-100 rounded-xl flex items-center justify-center">
           <span className="text-2xl font-bold">
@@ -43,13 +49,26 @@ export default async function ProductPage({params}: Props) {
             {product.description}
           </p>
 
-          <AddToCartButton
-            product={{
-              _id: product._id,
-              name: product.name,
-              price: product.price,
-            }}
-          />
+          <div className="mt-8 flex gap-4">
+
+            <AddToCartButton
+              product={{
+                _id: product._id,
+                name: product.name,
+                price: product.price,
+              }}
+            />
+
+            <AddToWishlistButton
+              product={{
+                _id: product._id,
+                name: product.name,
+                price: product.price,
+              }}
+            />
+
+          </div>
+
         </div>
 
       </div>
