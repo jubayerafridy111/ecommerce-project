@@ -5,13 +5,13 @@ const addWishlist = async ( req: Request, res: Response, next: NextFunction ) =>
   try {
     const userId = (req as any).user.userId;
 
-    const { productId, name, price } = req.body;
+    const { productId } = req.body;
 
-    if ( !productId || !name || price === undefined ) {
+    if ( !productId ) {
       throw new Error("Invalid request body");
     }
 
-    const result = await addWishlistToDb({ userId, productId, name, price });
+    const result = await addWishlistToDb({ userId, productId });
     res.status(200).json({
       success: true,
       data: result,

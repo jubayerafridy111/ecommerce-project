@@ -7,14 +7,12 @@ const addCartToDb = async ( payload: IAddCart ) => {
 
   if (!cart) {
   const newCart = new Cart({
-                        userId: payload.userId,
-                        products: [
-                        {
-                            productId: payload.productId,
-                            name: payload.name,
-                            price: payload.price,
-                        },
-                        ],
+    userId: payload.userId,
+    products: [
+    {
+      productId: payload.productId
+    },
+    ],
   });
 
   await newCart.save();
@@ -27,9 +25,7 @@ const addCartToDb = async ( payload: IAddCart ) => {
     existingProduct.quantity += 1;
   } else {
     cart.products.push({
-      productId: payload.productId,
-      name: payload.name,
-      price: payload.price,
+      productId: payload.productId
     });
   }
 

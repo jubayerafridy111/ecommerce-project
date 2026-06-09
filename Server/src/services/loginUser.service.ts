@@ -1,7 +1,8 @@
 import type { ILogin } from "../interfaces/user.interface.js";
 import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
-
+import Cart from "../models/cart.model.js";
+import Wishlist from "../models/wishlist.model.js";
 
 
 const loginUser = async (payload : ILogin ) => {
@@ -26,10 +27,19 @@ const loginUser = async (payload : ILogin ) => {
     );
     const userName = user.name;
     const role = user.role;
-    return { accessToken, userName , role };
+
+    const cart = await Cart.findOne({userId: user._id });
+    const wishlist = await Wishlist.findOne({ userId: user._id });
+
+    const cartProductIds = cart?.products.map( (item) => item.productId.toString()) || [];
+
+    const wishlistProductIds = wishlist?.products.map((item) => item.productId.toString() ) || [];
+
+
+
+    return { accessToken, userName , role , cartProductIds , wishlistProductIds };
 }
 
 export const UserServices = {
     loginUser
-
 }

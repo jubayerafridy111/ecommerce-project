@@ -12,9 +12,7 @@ const addWishlistToDb = async (payload: IAddWishlist) => {
       userId: payload.userId,
       products: [
         {
-          productId: payload.productId,
-          name: payload.name,
-          price: payload.price,
+          productId: payload.productId
         },
       ],
     });
@@ -29,8 +27,6 @@ const addWishlistToDb = async (payload: IAddWishlist) => {
   if (!existingProduct) {
     wishlist.products.push({
       productId: payload.productId,
-      name: payload.name,
-      price: payload.price,
     });
   }
 

@@ -53,14 +53,15 @@ export interface ILoginAdmin{
 export interface IAddCart {
   userId: string;
   productId: string;
-  name: string;
-  price: number;
-
 }
 
 export interface IAddWishlist {
   userId: string;
   productId: string;
-  name: string;
-  price: number;
+}
+
+export interface ICreateOrder {
+  userId: string;
+  productId: string;
+  quantity: number;
 }
