@@ -4,8 +4,8 @@ import userCreateIntoDb from "../services/createUser.service.js";
 
 const createUser = async ( req : Request , res : Response , next : NextFunction) => {
     try {
-        const { name, email, password } = req.body;
-        await userCreateIntoDb({ name, email, password });
+        const { name, email, password, role } = req.body;
+        await userCreateIntoDb({ name, email, password, role});
         res.status(201).json({
             success : true
         }) ;

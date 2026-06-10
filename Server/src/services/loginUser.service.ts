@@ -10,6 +10,12 @@ const loginUser = async (payload : ILogin ) => {
     if (!user) {
         throw new Error("User not found");
     }
+
+    if ( user.role !== payload.role ) {
+    throw new Error(
+      "Invalid role selected"
+    );
+  }
     const isPasswordMatch = await (user as any).comparePassword(payload.password);
     if (!isPasswordMatch) {
         throw new Error("Invalid password");

@@ -3,23 +3,15 @@ export interface ICreateUser{
     name: string;
     email: string;
     password: string;
+    role: string;
 }
 
 export interface ILogin{
     email: string;
     password: string;
+    role: string;
 }
 
-export interface ICreateSeller{
-    name: string;
-    email: string;
-    password: string;
-}
-
-export interface ILoginSeller{
-    email: string;
-    password: string;
-}
 
 export interface ICreateShop{
     name: string;
@@ -37,6 +29,7 @@ export interface ICreateProduct{
     category: string;
     sellerId: string;
     shopId: string;
+    images?: string[];
 }
 
 export interface ICreateAdmin{
@@ -62,6 +55,9 @@ export interface IAddWishlist {
 
 export interface ICreateOrder {
   userId: string;
-  productId: string;
-  quantity: number;
+
+  products: {
+    productId: string;
+    quantity: number;
+  }[];
 }

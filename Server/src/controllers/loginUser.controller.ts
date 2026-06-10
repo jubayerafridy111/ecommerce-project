@@ -4,8 +4,8 @@ import { UserServices } from "../services/loginUser.service.js";
 
 const loginUser = async (req : Request , res : Response , next : NextFunction) => {
     try {
-        const { email, password } = req.body;
-        const result = await UserServices.loginUser({ email, password })
+        const { email, password, role} = req.body;
+        const result = await UserServices.loginUser({ email, password , role})
         res.status(200).json({
             success : true ,
             data : result

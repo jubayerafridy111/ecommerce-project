@@ -10,7 +10,6 @@ const productSchema = new Schema({
     price: {
         type: Number,
         required: true,
-        trim: true,
         min : 1
     },
     title : {
@@ -32,11 +31,16 @@ const productSchema = new Schema({
     rating : {
         type: Number,
         min : 1,
-        max : 5
+        max : 5,
+        default : 4
     },
     flashSale : {
         type: Boolean,
         default: false,
+    },
+    images: {
+    type: [String],
+    required: true,
     },
 
     sellerId : {
